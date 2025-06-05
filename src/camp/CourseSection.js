@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import { CheckCircle } from "lucide-react";
-
+import Image from "next/image";
 // ตั้งวันเวลาเริ่มนับถอยหลังที่นี่
 const countdownTarget = new Date("2025-06-06T00:00:00");
 
@@ -72,13 +72,20 @@ export default function CourseSection() {
 
       {/* Right Side on Desktop (Image) */}
       <div className="w-full lg:w-1/2 p-10">
-        <div className="bg-black p-5 rounded-3xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500 mb-0 sm:mb-6 lg:mb-20">
-          <img className="rounded-2xl w-full" src="img/somsamai.jpg" alt="Mockup" />
+        <div className="bg-black p-5 rounded-3xl  shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500 mb-0 sm:mb-6 lg:mb-20">
+          <Image
+            src="/img/somsamai.jpg"
+            alt="Mockup"
+            width={400}
+            height={400}
+            className=" rounded-2xl w-full "
+            priority
+          />
         </div>
       </div>
 
       {/* Left Side (Text) */}
-      <div className="w-full lg:w-1/2 p-4 pt-0   md:p-0">
+      <div className="w-full lg:w-1/2 p-4 pt-0 md:p-0">
 
         <p className="text-xl sm:text-2xl lg:text-xl text-black leading-relaxed mb-4">
            นี่ไม่ใช่ค่ายที่ดูจบแล้วนั่งเฉย ๆ — มันคือค่ายที่กูจะลากมึงไปจนทำเว็บของตัวเองขึ้นมาได้จริง

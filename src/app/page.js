@@ -238,7 +238,7 @@ export default function GucodeLanding() {
     </div>
 
     <p className="text-md sm:text-lg text-gray-500 mt-10 italic">
-      "อยากให้มึงไม่ต้องงมอย่างที่กูเคยงม"
+      &quot;อยากให้มึงไม่ต้องงมอย่างที่กูเคยงม&quot;
     </p>
   </div>
 </section>
@@ -264,7 +264,7 @@ export default function GucodeLanding() {
                     <Star key={i} size={20} className="text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-300 mb-6 leading-relaxed">"{testimonial.text}"</p>
+                <p className="text-gray-300 mb-6 leading-relaxed">&quot;{testimonial.text}&quot;</p>
                 <div className="font-semibold">- {testimonial.name}</div>
               </div>
             ))}

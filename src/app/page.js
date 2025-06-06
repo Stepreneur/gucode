@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronDown, Play, Code, Users, Star, Menu, X, ArrowRight, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import CourseSection from "@/camp/CourseSection";
+import Navbar from '@/components/Navbar';
 
 
 
@@ -44,114 +45,60 @@ export default function GucodeLanding() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrollY > 50 ? 'bg-black/90 backdrop-blur-md border-b border-gray-800' : 'bg-transparent'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="text-lg font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Gucode
-            </div>
-            
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8 relative">
-            {['Home', 'Course', 'About', 'Contact'].map((item) => (
-            item === 'Course' ? (
-            <div key={item} className="relative group">
-            <button
-            className="flex items-center gap-1 text-white hover:text-gray-300 transition-colors duration-200 cursor-pointer"
-            >
-            {item}
-            <ChevronDown size={19} />
-            </button>
-          <div className="absolute left-0 top-full mt-2 w-40 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transform -translate-y-2 transition-all duration-200 z-10">
-          <a href="#web" className="block px-4 py-2 hover:bg-gray-100">Web Development</a>
-          <a href="#mobile" className="block px-4 py-2 hover:bg-gray-100">Mobile App</a>
-          <a href="#design" className="block px-4 py-2 hover:bg-gray-100">UI/UX Design</a>
-          </div>
-        </div>
-        ) : (
-        <a
-        key={item}
-        href={`#${item.toLowerCase()}`}
-        className="hover:text-gray-300 transition-colors duration-200 cursor-pointer"
-        >
-                {item}
-              </a>
-            )
-          ))}
-        </div>
-
-
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden bg-black/95 border-t border-gray-800">
-              {['Home', 'Courses', 'About', 'Contact'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`}
-                   className="block px-4 py-3 hover:bg-gray-900 transition-colors duration-200"
-                   onClick={() => setIsMenuOpen(false)}>
-                  {item}
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-      </nav>
-
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex  justify-center overflow-hidden ">
-        {/* Animated Background Grid */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-            animation: 'float 20s ease-in-out infinite'
-          }}></div>
-        </div>
+      <Navbar />
+     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+  {/* Background Grid Effect */}
+  <div className="absolute inset-0 opacity-10 pointer-events-none">
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage:
+          'linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)',
+        backgroundSize: '40px 40px',
+        animation: 'float 20s ease-in-out infinite',
+      }}
+    />
+  </div>
 
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight mt-35">
-              ฝันจะเขียนเว็บ
-              <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
-                เสือกไม่รู้จัก div
-              </span>
-            </h1>
-            
-            <p className="text-xl px-5 md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              ถ้ามึงเป็นคนที่ อยากหาตังจากการทำเว็บ อยากเข้าใจโค๊ดมากขึ้น อยากรู้ว่าตัวเองชอบสายนี้จริงมั้ย กูมั่นใจว่าเวิร์คช็อปที่กำลังจะจัดช่วยมึงได้แน่นอน
-            </p>
+  {/* Content */}
+  <div className="relative z-10 text-center px-6 sm:px-10 max-w-4xl mx-auto mb-20 animate-fade-in">
+    <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-6 leading-tight text-white">
+      ฝันอยากเขียนเว็บ
+      <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent mt-1">
+        เสือกไม่รู้จัก &lt;div&gt;
+      </span>
+    </h1>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
-                ดูรายละเอียดค่าย
-                <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
-              </button>
-              
-              <a href="https://tiktok.com/@gucode" target="_blank" rel="noopener noreferrer"
-                 className="border border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-                ดูคอร์สทั้งหมด
-              </a>
-            </div>
-          </div>
-        </div>
+    <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+      ถ้ามึงอยากเข้าใจโค้ดจริง ๆ อยากรู้ว่าสาย dev เหมาะกับมึงมั้ย หรืออยากเริ่มหาตังจากมัน...
+      กูมีค่ายและคอร์สที่ทำให้ทุกอย่าง “คลิก” ในหัวมึงได้แน่นอน
+    </p>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={32} className="text-gray-400" />
-        </div>
-       
-      </section>
+    {/* CTA Buttons */}
+    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
+        ดูรายละเอียดค่าย
+        <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+      </button>
+
+      <a
+        href="https://tiktok.com/@gucode"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="border border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
+      >
+        ดูคอร์สทั้งหมด
+      </a>
+    </div>
+  </div>
+
+  {/* Scroll Indicator */}
+  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <ChevronDown size={32} className="text-gray-400" />
+  </div>
+</section>
+
 
       {/* Free Stuff Section */}
 <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/95 text-black">
@@ -228,7 +175,10 @@ export default function GucodeLanding() {
       กูคือใคร ?
     </h2>
     <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-      กูคือคนที่เคย “เสือก” อยากเขียนเว็บ แต่โง่ทุกบรรทัด จนต้องลองผิดลองถูกมา 7 ปี และวันนี้ กูเอาทุกอย่างที่เคยล้ม มาเล่าให้มึงฟังแบบไม่มีกั๊ก
+  กูเริ่มเขียนโค้ดมาได้ 2 ปี — จากคนที่ไม่มีพื้นฐานอะไรเลย แต่เชื่ออย่างสุดใจว่า “ไอ้สิ่งนี้แหละ จะเปลี่ยนชีวิตกูได้”<br /><br />
+  ช่วง ม.ปลาย กูขาดเรียนบ่อยมาก เพราะเลือกโดดไปเขียนโค้ด ทำโปรเจกต์จริง รับงานจริง หาตังจากมันจริง ๆ กูเชื่อว่าการเขียนโค้ดไม่ได้เรียนรู้จากตำรา แต่เรียนรู้จากการลงมือทำ เจ็บจริง แก้จริง แล้วมันจะชินมือ<br /><br />
+  ทุกสิ่งที่กูสอน คือสิ่งที่กูใช้ทำมาหากิน ไม่ใช่แค่ทฤษฎีในยูทูบ  <br /><br />
+  ถ้ามึงเชื่อในตัวเองสักนิด กูจะพาไปให้สุดทาง
     </p>
 
     <div className="flex justify-center">
@@ -238,7 +188,7 @@ export default function GucodeLanding() {
     </div>
 
     <p className="text-md sm:text-lg text-gray-500 mt-10 italic">
-      &quot;อยากให้มึงไม่ต้องงมอย่างที่กูเคยงม&quot;
+      &quot;ถ้ามึงเชื่อในการโค๊ด ทุ่มสุดตัวเหอะ&quot;
     </p>
   </div>
 </section>

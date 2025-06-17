@@ -26,7 +26,7 @@ export default function CourseSection() {
     {/* Countdown */}
    <Countdown />
  <h2 className="text-4xl sm:text-5xl  md:text-5xl font-bold text-black mb-8 leading-snug text-center lg:text-start">
-          🔥 GuJaCode Camp
+          🔥 GuJaCode online camp
         </h2>
     {/* Main Content: Stack on mobile, side-by-side on desktop with image on right */}
     <div className="flex flex-col lg:flex-row-reverse items-center gap-12 md:gap-0 md:pl-9 lg:gap-15">
@@ -76,13 +76,13 @@ export default function CourseSection() {
 
         <div className="mb-6">
           <div className="text-center sm:text-left">
-            <span className="text-3xl sm:text-4xl font-bold text-black">เพียง 1,200</span>
+            <span className="text-3xl sm:text-4xl font-bold text-black">1,490</span>
             <span className="text-xl sm:text-2xl text-black ml-2">บาท</span>
           </div>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Link href="https://forms.gle/Y5fUxVCHBH8Wv57F6" className="bg-black text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-800 transition-all duration-300">
+          <Link href="https://forms.gle/GFFoeQCcSKWPgBQV8" className="bg-black text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-800 transition-all duration-300">
             สมัคร
           </Link>
           <Link href="https://lin.ee/a1IFJz5" className="border block border-gray-700 text-black px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-100 transition-all duration-300">

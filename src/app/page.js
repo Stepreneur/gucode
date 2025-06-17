@@ -233,18 +233,18 @@ export default function GucodeLanding() {
     สมัครค่ายกุ หรือดูคอร์สทั้งหมดที่กูเปิดสอน
   </p>
   <div className="flex flex-col sm:flex-row justify-center gap-4">
-    <a 
-      href="#workshop" 
+    <Link 
+      href="https://forms.gle/GFFoeQCcSKWPgBQV8" 
       className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
     >
       สมัครเวิร์คช็อป
-    </a>
-    <a 
-      href="#all-courses" 
+    </Link>
+    <Link 
+      href="#free" 
       className="border border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
     >
-      ดูรายการคอร์สทั้งหมด
-    </a>
+      ดูรายการคอร์สฟรี
+    </Link>
   </div>
   <p className='mt-50 text-7xl md:text-8xl font-bold'>
     แล้วเจอกันไอสัส
@@ -261,33 +261,32 @@ export default function GucodeLanding() {
               <div className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                 Gucode
               </div>
-              <p className="text-gray-400">Making web development accessible to everyone</p>
+              <p className="text-gray-400">กุอยากช่วยมึงให้เริ่มต้นเส้นทางได้ง่ายขึ้น</p>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">Courses</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">HTML Fundamentals</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">CSS Mastery</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Coming Soon...</a></li>
-              </ul>
+                <li><Link href="#course" className="hover:text-white transition-colors">GuJaCode online camp</Link></li>
+                <li><Link href="#free" className="hover:text-white transition-colors">free courses</Link></li>
+                </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Community</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                <li><Link target='_blank' href="https://lin.ee/a1IFJz5" className="hover:text-white transition-colors">สอบถาม</Link></li>
+                <li><Link target='_blank' href="https://discord.gg/e64SaAu6mS" className="hover:text-white transition-colors">คอมมูนิตี้</Link></li>
+                <li><Link target='_blank' href="https://lin.ee/a1IFJz5" className="hover:text-white transition-colors">จ้างทำเว็บ</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="https://tiktok.com/@gucode" className="hover:text-white transition-colors">TikTok</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">YouTube</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Discord</a></li>
+                <li><Link target='_blank' href="https://tiktok.com/@gucodenaja" className="hover:text-white transition-colors">TikTok</Link></li>
+                <li><Link target='_blank' href="https://www.youtube.com/@GuCodeJa" className="hover:text-white transition-colors">YouTube</Link></li>
+                <li><Link target='_blank' href="https://www.instagram.com/gucodingnaja/" className="hover:text-white transition-colors">Instagram</Link></li>
               </ul>
             </div>
           </div>

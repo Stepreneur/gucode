@@ -3,7 +3,8 @@
 import React, { useState } from 'react'
 import Navbar from '@/components/Navbar';
 import Link from 'next/link.js'
-
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 function login () {
     const [Email ,  setEmail] = useState("");
     const [Password ,  setPassword] = useState("");  

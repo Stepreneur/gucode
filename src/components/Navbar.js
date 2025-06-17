@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
-
+import Link from 'next/link';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
@@ -25,22 +25,24 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-white hover:text-gray-300 transition-colors duration-200">หน้าหลัก</a>
+            <Link href="/#hero" className="text-white hover:text-gray-300 transition-colors duration-200">หน้าหลัก</Link>
+            <Link href="#camp" className="text-white hover:text-gray-300 transition-colors duration-200">ค่ายกูจะโค๊ด</Link>
+
 
             <div className="relative group">
-              <a href="#course" className="flex items-center gap-1 text-white hover:text-gray-300 transition-colors duration-200">
-                คอร์ส
-                <ChevronDown size={19} />
-              </a>
-              <div className="absolute left-0 top-full mt-2 w-48 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transform -translate-y-2 transition-all duration-200 z-50">
+              <Link href="#free" className="flex items-center gap-1 text-white hover:text-gray-300 transition-colors duration-200">
+                คอร์สฟรี
+                <ChevronDown size={19} className='hidden'/>
+              </Link>
+              <div className="hidden absolute left-0 top-full mt-2 w-48 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transform -translate-y-2 transition-all duration-200 z-50">
                 <a href="#web" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Web Development</a>
                 <a href="#mobile" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Mobile App</a>
                 <a href="#design" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">UI/UX Design</a>
               </div>
             </div>
 
-            <a href="#about" className="text-white hover:text-gray-300 transition-colors duration-200">ทำงานกับเรา</a>
-            <a href="#hire" className="text-white hover:text-gray-300 transition-colors duration-200">จ้างทำเว็บ</a>
+            <Link href="https://line.me/ti/p/DRxgNscvu-" className="text-white hover:text-gray-300 transition-colors duration-200">ทำงานกับเรา</Link>
+            <Link href="https://line.me/ti/p/DRxgNscvu-" className="text-white hover:text-gray-300 transition-colors duration-200">จ้างทำเว็บ</Link>
           </div>
 
           {/* Right section: Mobile menu button + Login */}
@@ -51,12 +53,12 @@ const Navbar = () => {
             </button>
 
             {/* Login Button */}
-            <a
+            <Link
               href="/login"
-              className="text-white border border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-black transition-colors duration-200"
+              className="text-white border hidden border-white px-4 py-1 rounded-full text-sm hover:bg-white hover:text-black transition-colors duration-200"
             >
               Login
-            </a>
+            </Link>
           </div>
         </div>
 

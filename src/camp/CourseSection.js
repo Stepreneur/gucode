@@ -1,31 +1,14 @@
 "use client"
 import { useEffect, useState } from "react";
+import Countdown from "@/Countdown/page";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 // ตั้งวันเวลาเริ่มนับถอยหลังที่นี่
 const countdownTarget = new Date("2025-06-06T00:00:00");
 
 export default function CourseSection() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      const diff = countdownTarget - now;
-
-      if (diff <= 0) {
-        clearInterval(interval);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      } else {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / 1000 / 60) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-        setTimeLeft({ days, hours, minutes, seconds });
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+ 
 
   const courseFeatures = [
     "เกียรติบัตร", 
@@ -37,33 +20,11 @@ export default function CourseSection() {
   ];
 
   return (
-    <section id="courses" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="camp" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
   <div className="max-w-7xl mx-auto">
     
     {/* Countdown */}
-    <div className="flex flex-col items-center mb-14">
-      <p className="text-sm text-zinc-400 mb-2">ค่ายจะเริ่มในอีก</p>
-      <div className="flex gap-3 sm:gap-5">
-        {[
-          { label: "วัน", value: timeLeft.days },
-          { label: "ชม.", value: timeLeft.hours },
-          { label: "นาที", value: timeLeft.minutes },
-          { label: "วิ", value: timeLeft.seconds }
-        ].map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center bg-black border border-zinc-700 text-white rounded-2xl px-3 sm:px-5 py-2 shadow-lg w-16 sm:w-20"
-          >
-            <span className="text-xl sm:text-3xl font-extrabold">
-              {item.value.toString().padStart(2, '0')}
-            </span>
-            <span className="text-xs sm:text-sm mt-1 font-medium tracking-wide text-zinc-400">
-              {item.label}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
+   <Countdown />
  <h2 className="text-4xl sm:text-5xl  md:text-5xl font-bold text-black mb-8 leading-snug text-center lg:text-start">
           🔥 GuJaCode Camp
         </h2>
@@ -92,7 +53,7 @@ export default function CourseSection() {
               ตั้งแต่ ซื้อ domain, ซื้อ hosting, ไปจนถึง Deploy เว็บให้ขึ้นออนไลน์ได้ แบบที่กูทำอยู่ในการหาตังจริง ๆ
         </p>
         <p className="text-xl sm:text-2xl lg:text-xl text-black leading-relaxed mb-6">
-          กูรับประกันว่ามึงจะเข้าใจ “ทุกอย่างที่สำคัญจริง ๆ” ของ HTML กับ CSS ...
+          กูรับประกันว่ามึงจะเข้าใจ “ทุกอย่างที่สำคัญจริง ๆ” ของ HTML กับ CSS 
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
@@ -113,13 +74,20 @@ export default function CourseSection() {
           </p>
         </div>
 
+        <div className="mb-6">
+          <div className="text-center sm:text-left">
+            <span className="text-3xl sm:text-4xl font-bold text-black">เพียง 1,200</span>
+            <span className="text-xl sm:text-2xl text-black ml-2">บาท</span>
+          </div>
+        </div>
+
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="bg-black text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-800 transition-all duration-300">
+          <Link href="https://forms.gle/Y5fUxVCHBH8Wv57F6" className="bg-black text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-800 transition-all duration-300">
             สมัคร
-          </button>
-          <button className="border border-gray-700 text-black px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-100 transition-all duration-300">
-            รายละเอียดเพิ่มเติม
-          </button>
+          </Link>
+          <Link href="https://lin.ee/a1IFJz5" className="border block border-gray-700 text-black px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-100 transition-all duration-300">
+            สอบถาม
+          </Link>
         </div>
       </div>
     </div>

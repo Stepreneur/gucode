@@ -4,8 +4,8 @@ import { ChevronDown, Play, Code, Users, Star, Menu, X, ArrowRight, CheckCircle 
 import Image from 'next/image';
 import CourseSection from "@/camp/CourseSection";
 import Navbar from '@/components/Navbar';
-
-
+import Countdown from '@/Countdown/page';
+import Link from 'next/link';
 
 
 
@@ -47,7 +47,7 @@ export default function GucodeLanding() {
     <div className="bg-black text-white min-h-screen">
       {/* Hero Section */}
       <Navbar />
-     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
   {/* Background Grid Effect */}
   <div className="absolute inset-0 opacity-10 pointer-events-none">
     <div
@@ -62,7 +62,7 @@ export default function GucodeLanding() {
   </div>
 
   {/* Content */}
-  <div className="relative z-10 text-center px-6 sm:px-10 max-w-4xl mx-auto mb-20 animate-fade-in">
+  <div className="relative z-10 text-center px-6 sm:px-10 lg:mt-20 max-w-4xl mx-auto mb-20 animate-fade-in">
     <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-6 leading-tight text-white">
       ฝันอยากเขียนเว็บ
       <span className="block bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent mt-1">
@@ -72,24 +72,27 @@ export default function GucodeLanding() {
 
     <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
       ถ้ามึงอยากเข้าใจโค้ดจริง ๆ อยากรู้ว่าสาย dev เหมาะกับมึงมั้ย หรืออยากเริ่มหาตังจากมัน...
-      กูมีค่ายและคอร์สที่ทำให้ทุกอย่าง “คลิก” ในหัวมึงได้แน่นอน
+      กูช่วยมึงได้
     </p>
+
+    <Countdown />
 
     {/* CTA Buttons */}
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
-        ดูรายละเอียดค่าย
-        <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
-      </button>
+      <Link href="#camp">
+        <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
+          ดูรายละเอียดค่าย
+          <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
+        </button>
+      </Link>
 
-      <a
-        href="https://tiktok.com/@gucode"
-        target="_blank"
+      <Link 
+        href="#free"
         rel="noopener noreferrer"
         className="border border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
       >
-        ดูคอร์สทั้งหมด
-      </a>
+        ดูคอร์สฟรี
+      </Link>
     </div>
   </div>
 
@@ -101,7 +104,7 @@ export default function GucodeLanding() {
 
 
       {/* Free Stuff Section */}
-<section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/95 text-black">
+<section id="free" className="py-20 px-4 sm:px-6 lg:px-8 bg-white/95 text-black">
  <div className="max-w-7xl mx-auto">
    <div className="text-center mb-16">
      <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">
@@ -125,9 +128,10 @@ export default function GucodeLanding() {
                   <Image src="/freestuff/freehtml.png" alt="freehtml" fill className="object-contain" />
               </div>
         </div>
-         <button className="mt-1 text-lg w-80 self-center bg-black text-white py-4 rounded-full font-bold hover:bg-white hover:border-1 hover:border-black hover:text-black transition-all duration-300">
+          
+         <Link href="https://lin.ee/a1IFJz5" className="block text-center mt-1 text-lg w-80 self-center bg-black text-white py-4 rounded-full font-bold hover:bg-white hover:border-1 hover:border-black hover:text-black transition-all duration-300">
                 รับคอร์ส
-        </button>
+        </Link>
      </div>
      
 
@@ -141,9 +145,9 @@ export default function GucodeLanding() {
                   <Image src="/freestuff/freeguide.jpg" alt="freehtml" fill className="object-contain" />
               </div>
         </div>
-         <button className="mt-1 text-lg w-80 self-center bg-black text-white py-4 rounded-full font-bold hover:bg-white hover:border-1 hover:border-black hover:text-black transition-all duration-300">
+         <Link href="https://lin.ee/a1IFJz5" className="block text-center mt-1 text-lg w-80 self-center bg-black text-white py-4 rounded-full font-bold hover:bg-white hover:border-1 hover:border-black hover:text-black transition-all duration-300">
                 รับไกด์
-        </button>
+        </Link>
      </div>
 
      {/* Free Community */}
@@ -156,9 +160,9 @@ export default function GucodeLanding() {
                   <Image src="/freestuff/freeclub.jpg" alt="freehtml" fill className="object-contain " />
               </div>
         </div>
-         <button className="mt-1 text-lg w-80 self-center bg-black text-white py-4 rounded-full font-bold hover:bg-white hover:border-1 hover:border-black hover:text-black transition-all duration-300">
+         <Link href="https://lin.ee/a1IFJz5" className="block text-center mt-1 text-lg w-80 self-center bg-black text-white py-4 rounded-full font-bold hover:bg-white hover:border-1 hover:border-black hover:text-black transition-all duration-300">
                 ร่วมพูดคุยกับเรา
-        </button>
+        </Link>
      </div>
    </div>
  </div>

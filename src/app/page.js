@@ -44,7 +44,7 @@ export default function GucodeLanding() {
   ];
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen overflow-y-hidden w-[100vw]">
       {/* Hero Section */}
       <Navbar />
      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">

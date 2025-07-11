@@ -75,13 +75,17 @@ export default function GucodeLanding() {
       กูช่วยมึงได้
     </p>
 
+      {/* 
+
     <Countdown />
+
+       */}
 
     {/* CTA Buttons */}
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <Link href="#camp">
+      <Link href="#last">
         <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
-          ดูรายละเอียดค่าย
+            สมัครคอร์สง่ายสัส HTML
           <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
         </button>
       </Link>
@@ -117,8 +121,8 @@ export default function GucodeLanding() {
      
    </div>
 
-   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mb-16">
-     {/* Free Course */}
+   <div className="gap-14 mb-16 flex flex-col md:flex-row items-center justify-center">
+     {/* Free Course 
      <div className='flex justify-center flex-col'>
       <div className='self-end mr-10 mb-3 bg-orange-700 py-1 px-3 rounded-l-xl text-sm text-white font-bold'>รับฟรีได้เลย !</div>
         <h3 className="text-2xl font-bold self-center text-center">คอร์สสอนเขียน <span className='block'>HTML</span></h3>
@@ -133,6 +137,7 @@ export default function GucodeLanding() {
                 รับคอร์ส
         </Link>
      </div>
+     */}
      
 
      {/* Free Resources */}
@@ -197,8 +202,9 @@ export default function GucodeLanding() {
   </div>
 </section>
 
-{/* Course Details */}
+{/* Course Details 
 <CourseSection />
+*/}
 
 
       {/* Testimonials */}
@@ -227,17 +233,17 @@ export default function GucodeLanding() {
         </div>
       </section>
 {/* CTA หลัง Testimonials */}
-<section className="py-16 px-6 bg-black text-white text-center h-200">
+<section id='last' className="py-16 px-6 bg-black text-white text-center h-200">
   <h2 className="text-3xl md:text-4xl font-bold mb-6">ถ้ามึงพร้อมเอาจริงเอาจังแล้ว</h2>
   <p className="text-gray-400 text-lg md:text-xl mb-10">
-    สมัครค่ายกุ หรือดูคอร์สทั้งหมดที่กูเปิดสอน
+    สมัครคอร์สกุ หรือดูคอร์สทั้งหมดที่กูเปิดสอน
   </p>
   <div className="flex flex-col sm:flex-row justify-center gap-4">
     <Link 
       href="https://forms.gle/GFFoeQCcSKWPgBQV8" 
       className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
     >
-      สมัครเวิร์คช็อป
+      สมัครคอร์สง่ายสัส HTML
     </Link>
     <Link 
       href="#free" 

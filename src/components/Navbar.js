@@ -41,8 +41,8 @@ const Navbar = () => {
               </div>
             </div>
 
-            <Link href="https://line.me/ti/p/DRxgNscvu-" className="text-white hover:text-gray-300 transition-colors duration-200">ทำงานกับเรา</Link>
-            <Link href="https://line.me/ti/p/DRxgNscvu-" className="text-white hover:text-gray-300 transition-colors duration-200">จ้างทำเว็บ</Link>
+            <Link href="https://lin.ee/zzks4rF" className="text-white hover:text-gray-300 transition-colors duration-200">ทำงานกับเรา</Link>
+            <Link href="https://lin.ee/zzks4rF" className="text-white hover:text-gray-300 transition-colors duration-200">จ้างทำเว็บ</Link>
           </div>
 
           {/* Right section: Mobile menu button + Login */}

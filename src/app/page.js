@@ -6,7 +6,7 @@ import CourseSection from "@/camp/CourseSection";
 import Navbar from '@/components/Navbar';
 import Countdown from '@/Countdown/page';
 import Link from 'next/link';
-
+import Line from '@/Line/page';
 
 
 export default function GucodeLanding() {
@@ -320,6 +320,7 @@ export default function GucodeLanding() {
           50% { transform: translateY(-10px); }
         }
       `}</style>
+      <Line />
     </div>
   );
 }

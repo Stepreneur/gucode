@@ -26,7 +26,7 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/#hero" className="text-white hover:text-gray-300 transition-colors duration-200">หน้าหลัก</Link>
-            <Link href="#last" className="text-white hover:text-gray-300 transition-colors duration-200">คอร์สง่ายสัส HTML</Link>
+            <Link href="https://forms.gle/Dn4WyhXjkTwkqaPy5" className="text-white hover:text-gray-300 transition-colors duration-200">คอร์สง่ายสัส HTML</Link>
 
 
             <div className="relative group">

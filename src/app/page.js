@@ -83,7 +83,7 @@ export default function GucodeLanding() {
 
     {/* CTA Buttons */}
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <Link href="#last">
+      <Link href="https://forms.gle/Dn4WyhXjkTwkqaPy5" target="_blank">
         <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
             สมัครคอร์สง่ายสัส HTML
           <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
@@ -240,7 +240,7 @@ export default function GucodeLanding() {
   </p>
   <div className="flex flex-col sm:flex-row justify-center gap-4">
     <Link 
-      href="https://forms.gle/GFFoeQCcSKWPgBQV8" 
+      href="https://forms.gle/Dn4WyhXjkTwkqaPy5" target="_blank" 
       className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
     >
       สมัครคอร์สง่ายสัส HTML

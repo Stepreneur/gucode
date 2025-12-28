@@ -83,9 +83,9 @@ export default function GucodeLanding() {
 
     {/* CTA Buttons */}
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <Link href="https://forms.gle/Dn4WyhXjkTwkqaPy5" target="_blank">
+      <Link href="https://forms.gle/J4MbgMjU3zvUWw7p7" target="_blank">
         <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
-            สมัครคอร์สง่ายสัส HTML
+            สมัครคอร์สสอนสด
           <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
         </button>
       </Link>
@@ -240,10 +240,10 @@ export default function GucodeLanding() {
   </p>
   <div className="flex flex-col sm:flex-row justify-center gap-4">
     <Link 
-      href="https://forms.gle/Dn4WyhXjkTwkqaPy5" target="_blank" 
+      href="https://forms.gle/J4MbgMjU3zvUWw7p7" target="_blank" 
       className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
     >
-      สมัครคอร์สง่ายสัส HTML
+      สมัครคอร์สสอนสด
     </Link>
     <Link 
       href="#free" 

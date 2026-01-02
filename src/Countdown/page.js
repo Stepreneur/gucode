@@ -1,6 +1,6 @@
 import React, { useState , useEffect } from 'react'
  
-const countdownTarget = new Date("2025-07-05T17:00:00");
+const countdownTarget = new Date("2026-01-24T17:00:00");
 const Countdown = () => {
      const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     
@@ -26,7 +26,7 @@ const Countdown = () => {
   return (
     <div>
      <div className="flex flex-col items-center mb-14">
-          <p className="text-sm text-zinc-400 mb-2">ค่ายจะเริ่มในอีก</p>
+          <p className="text-sm text-zinc-400 mb-2">สอนสดจะเริ่มในอีก</p>
           <div className="flex gap-3 sm:gap-5">
             {[
               { label: "วัน", value: timeLeft.days },

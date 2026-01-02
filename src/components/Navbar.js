@@ -26,14 +26,10 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/#hero" className="text-white hover:text-gray-300 transition-colors duration-200">หน้าหลัก</Link>
-            <Link href="https://forms.gle/Dn4WyhXjkTwkqaPy5" className="text-white hover:text-gray-300 transition-colors duration-200">คอร์สง่ายสัส HTML</Link>
+            <Link href="https://forms.gle/Dn4WyhXjkTwkqaPy5" className="text-white hover:text-gray-300 transition-colors duration-200">GuWeb101</Link>
 
 
             <div className="relative group">
-              <Link href="#free" className="flex items-center gap-1 text-white hover:text-gray-300 transition-colors duration-200">
-                คอร์สฟรี
-                <ChevronDown size={19} className='hidden'/>
-              </Link>
               <div className="hidden absolute left-0 top-full mt-2 w-48 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transform -translate-y-2 transition-all duration-200 z-50">
                 <a href="#web" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Web Development</a>
                 <a href="#mobile" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Mobile App</a>

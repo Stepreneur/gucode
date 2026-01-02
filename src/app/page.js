@@ -75,11 +75,9 @@ export default function GucodeLanding() {
       กูช่วยมึงได้
     </p>
 
-      {/* 
 
     <Countdown />
 
-       */}
 
     {/* CTA Buttons */}
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

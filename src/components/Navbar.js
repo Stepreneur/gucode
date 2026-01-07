@@ -62,9 +62,9 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-black/95 border-t border-gray-800">
             <a href="#home" className="block px-4 py-3 hover:bg-gray-900 text-white" onClick={() => setIsMenuOpen(false)}>หน้าหลัก</a>
-            <a href="#course" className="block px-4 py-3 hover:bg-gray-900 text-white" onClick={() => setIsMenuOpen(false)}>คอร์ส</a>
-            <a href="#about" className="block px-4 py-3 hover:bg-gray-900 text-white" onClick={() => setIsMenuOpen(false)}>ทำงานกับเรา</a>
-            <a href="#hire" className="block px-4 py-3 hover:bg-gray-900 text-white" onClick={() => setIsMenuOpen(false)}>จ้างทำเว็บ</a>
+            <a href="https://forms.gle/Dn4WyhXjkTwkqaPy5" className="block px-4 py-3 hover:bg-gray-900 text-white" onClick={() => setIsMenuOpen(false)}>คอร์ส</a>
+            <a href="https://lin.ee/zzks4rF" className="block px-4 py-3 hover:bg-gray-900 text-white" onClick={() => setIsMenuOpen(false)}>ทำงานกับเรา</a>
+            <a href="https://lin.ee/zzks4rF" className="block px-4 py-3 hover:bg-gray-900 text-white" onClick={() => setIsMenuOpen(false)}>จ้างทำเว็บ</a>
           </div>
         )}
       </div>

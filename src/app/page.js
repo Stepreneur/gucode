@@ -87,7 +87,7 @@ export default function GucodeLanding() {
           <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
         </button>
       </Link>
-
+      {/* 
       <Link 
         href="#free"
         rel="noopener noreferrer"
@@ -95,6 +95,7 @@ export default function GucodeLanding() {
       >
         ดูคอร์สฟรี
       </Link>
+      */}
     </div>
   </div>
 
@@ -105,7 +106,7 @@ export default function GucodeLanding() {
 </section>
 
 
-      {/* Free Stuff Section */}
+      {/* Free Stuff Section 
 <section id="free" className="py-20 px-4 sm:px-6 lg:px-8 bg-white/95 text-black">
  <div className="max-w-7xl mx-auto">
    <div className="text-center mb-16">
@@ -118,6 +119,7 @@ export default function GucodeLanding() {
      </p>
      
    </div>
+
 
    <div className="gap-14 mb-16 flex flex-col md:flex-row items-center justify-center">
      {/* Free Course 
@@ -135,10 +137,10 @@ export default function GucodeLanding() {
                 รับคอร์ส
         </Link>
      </div>
-     */}
+     
      
 
-     {/* Free Resources */}
+     {/* Free Resources 
       <div className='flex justify-center flex-col'>
       <div className='self-end mr-10 mb-3 bg-orange-700 py-1 px-3 rounded-l-xl text-sm text-white font-bold'>รับฟรีได้เลย !</div>
         <h3 className="text-2xl font-bold self-center text-center">ไกด์ทุกพื้นฐาน<span className='block'>การเขียนเว็บที่มึงต้องรู้</span></h3>
@@ -153,7 +155,7 @@ export default function GucodeLanding() {
         </Link>
      </div>
 
-     {/* Free Community */}
+     {/* Free Community 
      <div className='flex justify-center flex-col'>
       <div className='self-end mr-10 mb-3 bg-orange-700 py-1 px-3 rounded-l-xl text-sm text-white font-bold'>600 + สมาชิก !</div>
         <h3 className="text-2xl font-bold self-center text-center">คอมมูนิตี้ดิสคอร์ด<span className='block'>Gucode Club</span></h3>
@@ -170,6 +172,7 @@ export default function GucodeLanding() {
    </div>
  </div>
 </section>
+*/}
 
       {/* Features Section */}
      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-gray-50 to-white text-black relative">

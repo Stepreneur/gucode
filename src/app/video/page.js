@@ -20,6 +20,7 @@ import {
   Menu
 } from 'lucide-react';
 import Image from 'next/image';
+import { trackButtonClick } from '@/utils/gtag';
 
 export default function CourseVideoPage() {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -106,7 +107,10 @@ export default function CourseVideoPage() {
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-4">
             <button 
-              onClick={() => setShowSidebar(!showSidebar)}
+              onClick={() => {
+                setShowSidebar(!showSidebar);
+                trackButtonClick('Toggle Sidebar', 'video-header', '');
+              }}
               className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
             >
               <Menu size={20} />
@@ -124,7 +128,10 @@ export default function CourseVideoPage() {
             <div className="text-sm text-gray-400">
               {completedVideos.size}/{courseData.totalVideos} บทเรียน
             </div>
-            <button className="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
+            <button 
+              onClick={() => trackButtonClick('ดาวน์โหลดทั้งหมด', 'video-header', '')}
+              className="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors"
+            >
               <Download size={16} className="inline mr-2" />
               ดาวน์โหลดทั้งหมด
             </button>
@@ -154,7 +161,12 @@ export default function CourseVideoPage() {
               {courseData.videos.map((video, index) => (
                 <div
                   key={video.id}
-                  onClick={() => handleVideoSelect(index)}
+                  onClick={() => {
+                    handleVideoSelect(index);
+                    if (!video.isLocked) {
+                      trackButtonClick(`เลือกวิดีโอ: ${video.title}`, 'video-sidebar', `video-${index}`);
+                    }
+                  }}
                   className={`p-4 rounded-lg cursor-pointer transition-all duration-200 ${
                     currentVideo === index 
                       ? 'bg-white text-black' 
@@ -237,17 +249,26 @@ export default function CourseVideoPage() {
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                 <div className="flex items-center space-x-4">
                   <button 
-                    onClick={() => setIsPlaying(!isPlaying)}
+                    onClick={() => {
+                      setIsPlaying(!isPlaying);
+                      trackButtonClick(isPlaying ? 'Pause Video' : 'Play Video', 'video-player', '');
+                    }}
                     className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform"
                   >
                     {isPlaying ? <Pause size={20} className="text-black" /> : <Play size={20} className="text-black ml-1" />}
                   </button>
                   
-                  <button className="text-white hover:text-gray-300">
+                  <button 
+                    onClick={() => trackButtonClick('Skip Back', 'video-player', '')}
+                    className="text-white hover:text-gray-300"
+                  >
                     <SkipBack size={20} />
                   </button>
                   
-                  <button className="text-white hover:text-gray-300">
+                  <button 
+                    onClick={() => trackButtonClick('Skip Forward', 'video-player', '')}
+                    className="text-white hover:text-gray-300"
+                  >
                     <SkipForward size={20} />
                   </button>
 
@@ -260,17 +281,26 @@ export default function CourseVideoPage() {
                   </div>
 
                   <button 
-                    onClick={() => setIsMuted(!isMuted)}
+                    onClick={() => {
+                      setIsMuted(!isMuted);
+                      trackButtonClick(isMuted ? 'Unmute Video' : 'Mute Video', 'video-player', '');
+                    }}
                     className="text-white hover:text-gray-300"
                   >
                     {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                   </button>
 
-                  <button className="text-white hover:text-gray-300">
+                  <button 
+                    onClick={() => trackButtonClick('Video Settings', 'video-player', '')}
+                    className="text-white hover:text-gray-300"
+                  >
                     <Settings size={20} />
                   </button>
 
-                  <button className="text-white hover:text-gray-300">
+                  <button 
+                    onClick={() => trackButtonClick('Fullscreen', 'video-player', '')}
+                    className="text-white hover:text-gray-300"
+                  >
                     <Maximize size={20} />
                   </button>
                 </div>
@@ -286,7 +316,14 @@ export default function CourseVideoPage() {
                 <p className="text-gray-400 text-lg">{currentVideoData.description}</p>
               </div>
               <button 
-                onClick={() => markAsCompleted(currentVideo)}
+                onClick={() => {
+                  markAsCompleted(currentVideo);
+                  trackButtonClick(
+                    completedVideos.has(currentVideo) ? 'เรียนจบแล้ว' : 'ทำเครื่องหมายว่าเรียนจบ',
+                    'video-info',
+                    `video-${currentVideo}`
+                  );
+                }}
                 className={`px-6 py-3 rounded-full font-semibold transition-all ${
                   completedVideos.has(currentVideo)
                     ? 'bg-green-600 text-white'
@@ -327,7 +364,10 @@ export default function CourseVideoPage() {
                 <MessageCircle size={24} className="mr-2" />
                 คำถามและการอภิปราย
               </h3>
-              <button className="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors">
+              <button 
+                onClick={() => trackButtonClick('ตั้งคำถาม', 'discussion-section', '')}
+                className="bg-white text-black px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition-colors"
+              >
                 ตั้งคำถาม
               </button>
             </div>

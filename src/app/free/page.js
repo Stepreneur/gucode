@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import { trackButtonClick, trackFormSubmit } from "@/utils/gtag";
 
 /* =========================
    QUALIFICATION FORM CONFIG
@@ -84,6 +85,7 @@ export default function HomePage() {
 
     if (isLastStep) {
       console.log("QUALIFIED USER 👉", formData);
+      trackFormSubmit('Roadmap Qualification Form', 'free-page');
 
       alert(
         "คุณผ่านการคัดกรอง 🎉\n\n" +
@@ -159,6 +161,11 @@ export default function HomePage() {
 
           <button
             type="submit"
+            onClick={() => trackButtonClick(
+              isLastStep ? "ขอรับ Roadmap" : "ถัดไป",
+              'qualification-form',
+              ''
+            )}
             className="w-full mt-10 bg-orange-600 py-6 rounded-full text-2xl font-bold hover:bg-orange-700"
           >
             {isLastStep ? "ขอรับ Roadmap" : "ถัดไป"}

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Play, Code, Users, Star, Clock, Award, CheckCircle, ArrowRight, Gift, Zap, Trophy, Calendar } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import { trackButtonClick, trackLinkClick } from '@/utils/gtag';
 
 export default function AllCoursesPage() {
   const [activeTab, setActiveTab] = useState('all');
@@ -228,7 +229,14 @@ export default function AllCoursesPage() {
             )}
           </div>
           
-          <button className="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all duration-300 flex items-center gap-2">
+          <button 
+            onClick={() => trackButtonClick(
+              type === 'free' ? 'รับฟรี' : type === 'camp' ? 'สมัครเลย' : 'เรียนเลย',
+              `course-card-${type}`,
+              course.id ? `/course/${course.id}` : ''
+            )}
+            className="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all duration-300 flex items-center gap-2"
+          >
             {type === 'free' ? 'รับฟรี' : type === 'camp' ? 'สมัครเลย' : 'เรียนเลย'}
             <ArrowRight size={16} />
           </button>
@@ -330,7 +338,10 @@ export default function AllCoursesPage() {
             <div className="text-sm text-gray-400">ราคาพิเศษจำกัดเวลา</div>
           </div>
           
-          <button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all duration-300 flex items-center gap-2 shadow-lg">
+          <button 
+            onClick={() => trackButtonClick('สมัครเลย!', 'camp-card', camp.id ? `/camp/${camp.id}` : '')}
+            className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all duration-300 flex items-center gap-2 shadow-lg"
+          >
             สมัครเลย!
             <ArrowRight size={18} />
           </button>
@@ -475,7 +486,10 @@ export default function AllCoursesPage() {
                       </div>
                     </div>
                     
-                    <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 flex items-center gap-2">
+                    <button 
+                      onClick={() => trackButtonClick('เรียนเลย', 'paid-course-card', course.id ? `/course/${course.id}` : '')}
+                      className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 flex items-center gap-2"
+                    >
                       เรียนเลย
                       <ArrowRight size={16} />
                     </button>
@@ -518,10 +532,16 @@ export default function AllCoursesPage() {
             เลือกคอร์สที่เหมาะกับมึง แล้วเริ่มเขียนโค้ดได้เลยวันนี้
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300">
+            <button 
+              onClick={() => trackButtonClick('เริ่มด้วยคอร์สฟรี', 'cta-section', '#free')}
+              className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300"
+            >
               เริ่มด้วยคอร์สฟรี
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-300">
+            <button 
+              onClick={() => trackButtonClick('ดูค่ายทั้งหมด', 'cta-section', '#camps')}
+              className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-300"
+            >
               ดูค่ายทั้งหมด
             </button>
           </div>
@@ -542,27 +562,27 @@ export default function AllCoursesPage() {
             <div>
               <h4 className="font-semibold mb-4">คอร์ส</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#free" className="hover:text-white transition-colors">คอร์สฟรี</a></li>
-                <li><a href="#paid" className="hover:text-white transition-colors">คอร์สเสียตัง</a></li>
-                <li><a href="#camps" className="hover:text-white transition-colors">ค่าย & เวิร์คช็อป</a></li>
+                <li><a href="#free" onClick={() => trackLinkClick('คอร์สฟรี', '#free', 'footer')} className="hover:text-white transition-colors">คอร์สฟรี</a></li>
+                <li><a href="#paid" onClick={() => trackLinkClick('คอร์สเสียตัง', '#paid', 'footer')} className="hover:text-white transition-colors">คอร์สเสียตัง</a></li>
+                <li><a href="#camps" onClick={() => trackLinkClick('ค่าย & เวิร์คช็อป', '#camps', 'footer')} className="hover:text-white transition-colors">ค่าย & เวิร์คช็อป</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">ช่วยเหลือ</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">ศูนย์ช่วยเหลือ</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">คอมมูนิตี้</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">ติดต่อเรา</a></li>
+                <li><a href="#" onClick={() => trackLinkClick('ศูนย์ช่วยเหลือ', '#', 'footer')} className="hover:text-white transition-colors">ศูนย์ช่วยเหลือ</a></li>
+                <li><a href="#" onClick={() => trackLinkClick('คอมมูนิตี้', '#', 'footer')} className="hover:text-white transition-colors">คอมมูนิตี้</a></li>
+                <li><a href="#" onClick={() => trackLinkClick('ติดต่อเรา', '#', 'footer')} className="hover:text-white transition-colors">ติดต่อเรา</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">ติดตาม</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="https://tiktok.com/@gucode" className="hover:text-white transition-colors">TikTok</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">YouTube</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Discord</a></li>
+                <li><a href="https://tiktok.com/@gucode" onClick={() => trackLinkClick('TikTok', 'https://tiktok.com/@gucode', 'footer')} className="hover:text-white transition-colors">TikTok</a></li>
+                <li><a href="#" onClick={() => trackLinkClick('YouTube', '#', 'footer')} className="hover:text-white transition-colors">YouTube</a></li>
+                <li><a href="#" onClick={() => trackLinkClick('Discord', '#', 'footer')} className="hover:text-white transition-colors">Discord</a></li>
               </ul>
             </div>
           </div>

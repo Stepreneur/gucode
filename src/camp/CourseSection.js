@@ -4,6 +4,7 @@ import Countdown from "@/Countdown/page";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { trackButtonClick, trackLinkClick } from "@/utils/gtag";
 // ตั้งวันเวลาเริ่มนับถอยหลังที่นี่
 const countdownTarget = new Date("2025-06-06T00:00:00");
 
@@ -82,10 +83,18 @@ export default function CourseSection() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Link href="https://forms.gle/GFFoeQCcSKWPgBQV8" className="bg-black text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-800 transition-all duration-300">
+          <Link 
+            href="https://forms.gle/GFFoeQCcSKWPgBQV8" 
+            onClick={() => trackButtonClick('สมัคร', 'course-section', 'https://forms.gle/GFFoeQCcSKWPgBQV8')}
+            className="bg-black text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-800 transition-all duration-300"
+          >
             สมัคร
           </Link>
-          <Link href="https://lin.ee/a1IFJz5" className="border block border-gray-700 text-black px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-100 transition-all duration-300">
+          <Link 
+            href="https://lin.ee/a1IFJz5" 
+            onClick={() => trackButtonClick('สอบถาม', 'course-section', 'https://lin.ee/a1IFJz5')}
+            className="border block border-gray-700 text-black px-6 py-3 rounded-full font-semibold text-base hover:bg-gray-100 transition-all duration-300"
+          >
             สอบถาม
           </Link>
         </div>

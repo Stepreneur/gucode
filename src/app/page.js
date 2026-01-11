@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import Countdown from '@/Countdown/page';
 import Link from 'next/link';
 import Line from '@/Line/page';
+import { trackButtonClick, trackLinkClick } from '@/utils/gtag';
 
 
 export default function GucodeLanding() {
@@ -82,7 +83,10 @@ export default function GucodeLanding() {
     {/* CTA Buttons */}
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
       <Link href="https://forms.gle/J4MbgMjU3zvUWw7p7" target="_blank">
-        <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group">
+        <button 
+          onClick={() => trackButtonClick('สมัครคอร์สสอนสด', 'hero-section', 'https://forms.gle/J4MbgMjU3zvUWw7p7')}
+          className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group"
+        >
             สมัครคอร์สสอนสด
           <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} />
         </button>
@@ -241,13 +245,16 @@ export default function GucodeLanding() {
   </p>
   <div className="flex flex-col sm:flex-row justify-center gap-4">
     <Link 
-      href="https://forms.gle/J4MbgMjU3zvUWw7p7" target="_blank" 
+      href="https://forms.gle/J4MbgMjU3zvUWw7p7" 
+      target="_blank" 
+      onClick={() => trackButtonClick('สมัครคอร์สสอนสด', 'cta-section', 'https://forms.gle/J4MbgMjU3zvUWw7p7')}
       className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
     >
       สมัครคอร์สสอนสด
     </Link>
     <Link 
       href="#free" 
+      onClick={() => trackButtonClick('ดูรายการคอร์สฟรี', 'cta-section', '#free')}
       className="border border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
     >
       ดูรายการคอร์สฟรี
@@ -274,26 +281,26 @@ export default function GucodeLanding() {
             <div>
               <h4 className="font-semibold mb-4">Courses</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="#course" className="hover:text-white transition-colors">GuJaCode online camp</Link></li>
-                <li><Link href="#free" className="hover:text-white transition-colors">free courses</Link></li>
+                <li><Link href="#course" onClick={() => trackLinkClick('GuJaCode online camp', '#course', 'footer')} className="hover:text-white transition-colors">GuJaCode online camp</Link></li>
+                <li><Link href="#free" onClick={() => trackLinkClick('free courses', '#free', 'footer')} className="hover:text-white transition-colors">free courses</Link></li>
                 </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link target='_blank' href="https://lin.ee/a1IFJz5" className="hover:text-white transition-colors">สอบถาม</Link></li>
-                <li><Link target='_blank' href="https://discord.gg/e64SaAu6mS" className="hover:text-white transition-colors">คอมมูนิตี้</Link></li>
-                <li><Link target='_blank' href="https://lin.ee/a1IFJz5" className="hover:text-white transition-colors">จ้างทำเว็บ</Link></li>
+                <li><Link target='_blank' href="https://lin.ee/a1IFJz5" onClick={() => trackLinkClick('สอบถาม', 'https://lin.ee/a1IFJz5', 'footer')} className="hover:text-white transition-colors">สอบถาม</Link></li>
+                <li><Link target='_blank' href="https://discord.gg/e64SaAu6mS" onClick={() => trackLinkClick('คอมมูนิตี้', 'https://discord.gg/e64SaAu6mS', 'footer')} className="hover:text-white transition-colors">คอมมูนิตี้</Link></li>
+                <li><Link target='_blank' href="https://lin.ee/a1IFJz5" onClick={() => trackLinkClick('จ้างทำเว็บ', 'https://lin.ee/a1IFJz5', 'footer')} className="hover:text-white transition-colors">จ้างทำเว็บ</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link target='_blank' href="https://tiktok.com/@gucodenaja" className="hover:text-white transition-colors">TikTok</Link></li>
-                <li><Link target='_blank' href="https://www.youtube.com/@GuCodeJa" className="hover:text-white transition-colors">YouTube</Link></li>
-                <li><Link target='_blank' href="https://www.instagram.com/gucodingnaja/" className="hover:text-white transition-colors">Instagram</Link></li>
+                <li><Link target='_blank' href="https://tiktok.com/@gucodenaja" onClick={() => trackLinkClick('TikTok', 'https://tiktok.com/@gucodenaja', 'footer')} className="hover:text-white transition-colors">TikTok</Link></li>
+                <li><Link target='_blank' href="https://www.youtube.com/@GuCodeJa" onClick={() => trackLinkClick('YouTube', 'https://www.youtube.com/@GuCodeJa', 'footer')} className="hover:text-white transition-colors">YouTube</Link></li>
+                <li><Link target='_blank' href="https://www.instagram.com/gucodingnaja/" onClick={() => trackLinkClick('Instagram', 'https://www.instagram.com/gucodingnaja/', 'footer')} className="hover:text-white transition-colors">Instagram</Link></li>
               </ul>
             </div>
           </div>

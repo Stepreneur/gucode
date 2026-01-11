@@ -1,5 +1,6 @@
 import Image from 'next/image';
-  import Link from 'next/link'
+import Link from 'next/link';
+import { trackButtonClick } from '@/utils/gtag';
 
 export default function Line() {
     return <div>
@@ -9,6 +10,7 @@ export default function Line() {
           href="https://lin.ee/zzks4rF"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackButtonClick('LINE Contact Button', 'floating-button', 'https://lin.ee/zzks4rF')}
           className="group relative flex items-center justify-center w-16 h-16 bg-[#00C300] rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-110"
         >
           <Image

@@ -113,10 +113,14 @@ export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState({ title: '', message: '', isError: false });
   
   const cursorRef = useRef(null);
   const loadingRef = useRef(null);
   const mainContentRef = useRef(null);
+  const modalRef = useRef(null);
+  const modalContentRef = useRef(null);
 
   const step = formSteps[currentStep];
   const isLastStep = currentStep === formSteps.length - 1;
@@ -175,19 +179,21 @@ export default function HomePage() {
       }
 
       // Success
-      alert(
-        "คุณผ่านการคัดกรอง 🎉\n\n" +
-        "Roadmap จะถูกส่งให้เฉพาะคนที่ตั้งใจจริง\n\n" +
-        "ข้อมูลของคุณถูกบันทึกเรียบร้อยแล้ว"
-      );
+      setModalData({
+        title: "คุณผ่านการคัดกรอง",
+        message: "ทีมงานของเราจะติดต่อคุณภายใน 7 วันทำการ",
+        isError: false
+      });
+      setShowModal(true);
     } catch (err) {
       console.error('Submit error:', err);
       // Still show success message even if API fails (graceful degradation)
-      alert(
-        "คุณผ่านการคัดกรอง 🎉\n\n" +
-        "Roadmap จะถูกส่งให้เฉพาะคนที่ตั้งใจจริง\n\n" +
-        "หมายเหตุ: อาจมีปัญหาในการบันทึกข้อมูล กรุณาติดต่อเราทางช่องทางอื่น"
-      );
+      setModalData({
+        title: "คุณผ่านการคัดกรอง",
+        message: "ทีมงานของเราจะติดต่อคุณภายใน 7 วันทำการ \n\nหมายเหตุ: อาจมีปัญหาในการบันทึกข้อมูล กรุณาติดต่อเราทางช่องทางอื่น",
+        isError: false
+      });
+      setShowModal(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -340,6 +346,62 @@ export default function HomePage() {
     }
   }, [showContent]);
 
+  const closeModal = () => {
+    if (modalRef.current && modalContentRef.current) {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          setShowModal(false);
+        }
+      });
+      
+      tl.to(modalContentRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        y: 50,
+        duration: 0.3,
+        ease: "power2.in"
+      })
+      .to(modalRef.current, {
+        opacity: 0,
+        duration: 0.2,
+        ease: "power2.in"
+      }, "-=0.2");
+    } else {
+      setShowModal(false);
+    }
+  };
+
+  // Modal animation and keyboard support
+  useEffect(() => {
+    if (showModal && modalRef.current && modalContentRef.current) {
+      // Animate modal in
+      gsap.fromTo(modalRef.current, 
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power2.out" }
+      );
+      
+      gsap.fromTo(modalContentRef.current,
+        { scale: 0.8, opacity: 0, y: 50 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }
+      );
+
+      // Handle ESC key to close modal
+      const handleEsc = (e) => {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      };
+
+      document.addEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+      return () => {
+        document.removeEventListener('keydown', handleEsc);
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [showModal]);
+
   return (
     <div className="min-h-screen font-sans bg-black text-white relative overflow-hidden">
       {/* Loading Screen */}
@@ -459,6 +521,48 @@ export default function HomePage() {
           </div>
         </form>
       </main>
+
+      {/* Success Modal */}
+      {showModal && (
+        <div
+          ref={modalRef}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <div
+            ref={modalContentRef}
+            className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-center">
+              {/* Icon */}
+
+
+              {/* Title */}
+              <h2 className="text-3xl font-extrabold mb-4 text-white">
+                {modalData.title}
+              </h2>
+
+              {/* Message */}
+              <div className="text-gray-300 mb-8 whitespace-pre-line leading-relaxed">
+                {modalData.message.split('\n').map((line, index) => (
+                  <p key={index} className="mb-2">
+                    {line}
+                  </p>
+                ))}
+              </div>
+
+              {/* Button */}
+              <button
+                onClick={closeModal}
+                className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-colors duration-200"
+              >
+                ตกลง
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
